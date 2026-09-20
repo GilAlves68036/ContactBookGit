@@ -115,4 +115,12 @@ public class ContactBook {
         return contacts[searchIndexByPhone(phone)];
     }
 
+    public boolean hasRepeatedPhones() {
+        boolean repeated = false;
+        for (int i = 0; i < counter && !repeated; i++)
+            for (int j = i + 1; j < counter && !repeated; j++)
+                if (contacts[i].getPhone() == contacts[j].getPhone())
+                    repeated = true;
+        return repeated;
+    }
 }
